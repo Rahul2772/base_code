@@ -3,7 +3,7 @@
 #include"single_link_list.h"
 
 struct snode *push(struct snode *head,int val);
-int pop(struct snode *head);
+int pop(struct snode **phead);
 int peek(struct snode *head);
 int isempty(struct snode *head);
 
@@ -13,11 +13,9 @@ struct snode *push(struct snode *head,int val)
 }
 
 
-int pop(struct snode *head)
+int pop(struct snode **phead)
 {
-	printf("2---%p\n", head);
-	return del_beg(head);
-	printf("7---%p\n", head);
+	return del_beg(phead);
 }
 
 int isempty(struct snode *head)
@@ -38,18 +36,3 @@ int peek(struct snode *head)
  	return head->data;
 }
 
-/*int pop(struct snode *head)
-{
-	struct snode *temp;
-	int val;
-	if(isempty(head))
-	{
-		printf("Stack underflow\n");
-		return 0;
-	}
-	temp = head;
-	val = temp->data;
-	head = head->next;
-	free(temp);
-	return val;
-}*/

@@ -28,9 +28,8 @@ int main()
 
 		case 2: 
 			printf("1---%p\n", head);
-			val = pop(head);
+			val = pop(&head);
 			printf("poped value is : %d\n",val);
-			printf("8---%p\n", head);
 			break;
 			
 		case 3: 
