@@ -72,7 +72,7 @@ int main()
 				printf("deleted elemet is %d\n",val);
 				break;
 			case 9 : 
-				val  = del_beg(head);
+				val  = del_beg(&head);
 				printf("deleted element is %d\n",val);
 				break;
 			case 10 : 

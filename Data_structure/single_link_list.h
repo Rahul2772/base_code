@@ -14,7 +14,7 @@ struct snode *insert_pos(struct snode *head,int val,int pos);
 struct snode *del(struct snode *head,int val);
 struct snode *rev(struct snode *head);
 int del_end(struct snode *head);
-int del_beg(struct snode *head);
+int del_beg(struct snode **phead);
 void loop_detection(struct snode *head);
 int count_nodes(struct snode *n); 
 
@@ -171,28 +171,22 @@ int del_end(struct snode *head)
   return val;
 }
 
-int del_beg(struct snode *head)
+int del_beg(struct snode **phead)
 {
 	struct snode *temp;
 	int val;
-	printf("3---%p\n", head);
+	struct snode *head = *phead;
 	if(head == NULL)
 	{
 		printf("List is empty\n");
 		return -1;
 	}
-	printf("4---%p\n", head);
-	printf("temp 1---%p\n", temp);
 	temp = head;
 	val = temp->data;
-	printf("5---%p\n", head);
-	printf("temp 2---%p\n", temp);
 	head = head->next;
-	printf("6---%p\n", head);
-	printf("temp 3---%p\n", temp);
 	free(temp);
 	temp = NULL;
-	printf("val1---%d",head->data);
+	*phead = head;
   return val;
 }
 
